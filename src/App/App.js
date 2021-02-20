@@ -1,9 +1,8 @@
 import './App.css';
 import SideMenu from '../components/SideMenu';
-import PeopleOutlineTwoToneIcon from '@material-ui/icons/PeopleOutlineTwoTone';
 import { createMuiTheme, CssBaseline, makeStyles, ThemeProvider} from '@material-ui/core';
 import Header from '../components/Header';
-import PageHeader from '../components/PageHeader';
+import Employees from '../pages/Employees/Employees';
 
 
 const theme = createMuiTheme({
@@ -50,14 +49,9 @@ function App() {
       <SideMenu />
       <div className={classes.appMain}>
           <Header />
-          <PageHeader 
-          title="Page Header"
-          subTitle="Page description"
-          icon = {<PeopleOutlineTwoToneIcon fontSize='large'/>}
-          />
+          <Employees />
       </div>
       <CssBaseline />
-      
     </ThemeProvider>
   );
 }
