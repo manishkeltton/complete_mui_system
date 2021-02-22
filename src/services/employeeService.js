@@ -28,5 +28,11 @@ export function generateEmployeeId(){
 export function getAllEmployees() {
     if (localStorage.getItem(KEYS.employees) == null)
         localStorage.setItem(KEYS.employees, JSON.stringify([]))
-    return JSON.parse(localStorage.getItem(KEYS.employees));
+    let employees = JSON.parse(localStorage.getItem(KEYS.employees));
+    let departments = getDepartmentCollection();
+    //This will return updated list of employee with the new property deparment.
+    return employees.map(x => ({
+        ...x,
+        department : departments[x.departmentId-1].title
+    }))
 }
